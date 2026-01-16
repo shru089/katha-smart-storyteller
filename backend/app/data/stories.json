@@ -1,0 +1,182 @@
+[
+    {
+        "title": "रामायण",
+        "slug": "ramayana-epic",
+        "description": "मर्यादा पुरुषोत्तम श्री राम की पावन कथा। धर्म, त्याग और सत्य की विजय का महाकाव्य।",
+        "category": "महाकाव्य",
+        "cover_image_url": "https://pollinations.ai/p/cinematic%20painting%20of%20lord%20rama%20with%20bow%20in%20front%20of%20ayodhya%20palace%20golden%20hour%20rich%20heritage?width=1080&height=1920&nologo=true",
+        "sanskrit_title": "श्रीरामायणम्",
+        "chapters": [
+            {
+                "index": 1,
+                "title": "बालकाण्डम् - प्रस्थानम्",
+                "short_summary": "भगवान श्री राम का जन्म, उनकी शिक्षा और राक्षसों का वध।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "In the golden age of Treta Yuga, the sacred city of Ayodhya stood as a beacon of righteousness on the banks of the Sarayu. King Dasharatha, though mighty and just, felt a void in his heart—he had no heir to continue the glorious Ikshvaku lineage. Guided by Sage Rishyasringa, the King performed the Putrayeshti Yagna. From the sacrificial fires emerged a divine being bearing a vessel of celestial kheer. This kheer was shared among the three queens, Kausalya, Sumitra, and Kaikeyi. Soon, the palace echoed with the cries of four divine infants. Rama, the eldest, was born to Kausalya, embodying the very essence of Lord Vishnu. As the princes grew, they became masters of the Vedas and the arts of war, but it was Rama who stood out for his unparalleled virtue, calm demeanor, and unwavering devotion to Dharma. Ayodhya rejoiced as their future king bloomed into a man of destiny.",
+                        "reel_script": "Dasharatha: O Sages, will my lineage end with me? Vashistha: Fear not, King. The heavens have heard your plea. (A divine messenger appears) Messenger: Accept this celestial offering, O King. Your sons shall be the protectors of the worlds.",
+                        "emotion": "shanta",
+                        "symbolism": "The birth of divine order in a mortal world."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "The peace of Ayodhya was interrupted by the arrival of the formidable Sage Vishwamitra. He demanded that the young Rama accompany him to the forest of Dandaka to protect his sacred sacrifices from the demons Tataka and Maricha. Despite his initial hesitation to send his teenage son, Dasharatha relented. In the wilderness, Rama and Lakshmana learned the divine secrets of weaponry. With a single arrow, Rama ended the terror of the demoness Tataka, earning the blessings of the gods. Later, at the court of King Janaka in Mithila, Rama faced his greatest challenge yet—the lifting of heavy Shiva Dhanush, the celestial bow of Pinaka. As he strung the bow with effortless grace, it snapped with a thunderous crack that shook the Three Worlds. Thus, he won the hand of Princess Sita, the daughter of Earth herself, marking a union that would change history forever.",
+                        "reel_script": "Vishwamitra: Rama, the demons are at the gate. Use the Astra I taught you! Rama: (Drawing the bow) Your evil ends today, Rakshasi! (Janaka speaks) Janaka: If you can but string this bow, Princess Sita shall be yours. (CRACK! The bow breaks)",
+                        "emotion": "veera",
+                        "symbolism": "The strength of character over raw power."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "title": "अयोध्याकाण्डम् - वनवास",
+                "short_summary": "कैकेयी के वरदान और श्री राम का वन गमन।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "The air in Ayodhya was festive as the preparations for Rama's coronation as the Yuvaraja began. However, the shadows of intrigue were cast by the maid Manthara, who poisoned Queen Kaikeyi's mind with fear and jealousy. Bound by an old promise, Dasharatha was forced to grant Kaikeyi two boons: the coronation of her son Bharata and the fourteen-year exile of Rama to the forest. The news struck the palace like a thunderbolt. Dasharatha collapsed in grief, torn between his love for his son and his commitment to his word. Rama, however, remained as serene as a calm ocean. Without a trace of resentment, he accepted the exile, considering it his highest duty to uphold his father's honor. He traded his royal robes for the bark of trees, ready to face the unknown with a smile.",
+                        "reel_script": "Kaikeyi: Dasharatha, remember your word! Bharata must be King, and Rama must go to the forest for fourteen years! Dasharatha: (Falling) Kaikeyi! You ask for my life itself! Rama: Father, do not weep. A promise given is a debt to be paid. I go gladly.",
+                        "emotion": "karuna",
+                        "symbolism": "The ultimate sacrifice for truth (Satya)."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "As Rama prepared to depart, Sita and Lakshmana refused to be left behind. Sita, the ideal companion, argued that a wife's place is wherever her husband resides, while Lakshmana, the epitome of loyalty, could not imagine a world without his elder brother. Together, they crossed the Sarayu river, leaving behind a city drowned in tears. They journeyed through the wilderness, meeting sages and commoners alike, finding peace in the simplicity of nature. At Chitrakoot, they built a humble hut, living as hermits. Meanwhile, in Ayodhya, King Dasharatha passed away, whispering Rama's name. Bharata, returning from his uncle's kingdom, was horrified by his mother's actions. He sought out Rama in the forest, pleading with him to return. But Rama remained steadfast in his exile. Finally, Bharata returned with Rama's wooden sandals (Padukas), placing them on the throne of Ayodhya as a symbol of the true King's authority.",
+                        "reel_script": "Sita: My Lord, the forest with you is a palace to me. I will not stay! Lakshmana: Brother, I am your shadow. I follow where you tread. Bharata: Rama, come back! The throne is yours! Rama: No, Bharata. Rule in my name. These sandals shall guide you.",
+                        "emotion": "karuna",
+                        "symbolism": "Loyalty that transcends greed and ambition."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "title": "अरण्यकाण्डम् - सीताहरणम्",
+                "short_summary": "पंचवटी में निवास और रावण द्वारा सीता का अपहरण।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "The forest life continued in the serene woods of Panchavati. However, the peace was shattered when the demoness Shurpanakha, sister of the demon-king Ravana, attempted to seduce Rama and Lakshmana. When she tried to attack Sita, Lakshmana defended her by cutting off Shurpanakha's nose. Enraged, she fled to her brother Ravana, fueling his lust and desire for revenge. Ravana hatched a cunning plan. He sent the demon Maricha in the guise of a beautiful Golden Deer. Sita, enchanted by its brilliance, asked Rama to capture it. Rama, knowing the deer was an illusion but wanting to please Sita, chased it deep into the forest. When Maricha mimicked Rama's voice, crying for help, Sita sent a reluctant Lakshmana to find him. Before leaving, Lakshmana drew a protective line—the Lakshmana Rekha—around the hut, warning Sita not to cross it.",
+                        "reel_script": "Shurpanakha: Beautiful Prince, marry me! Rama: I am devoted to Sita alone. (Shurpanakha lunges) Lakshmana: Back, demoness! (He draws his blade) Sita: Rama, look! A golden deer! Please, bring it to me!",
+                        "emotion": "bhayanaka",
+                        "symbolism": "The dangers of desire and the fragility of peace."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "With Rama and Lakshmana away, Ravana appeared at the hut disguised as a wandering mendicant. He tricked Sita into crossing the Lakshmana Rekha to offer him alms. Once she stepped beyond the boundary, Ravana revealed his true, terrifying form with ten heads and twenty arms. He seized Sita and flew towards Lanka in his divine chariot, the Pushpaka Vimana. Sita's cries for help echoed through the valleys. The aged vulture king, Jatayu, witnessed the abduction and fought bravely against the demon king, only to have his wings clipped by Ravana's sword. As he lay dying, he managed to tell the searching Rama the direction in which Sita had been taken. Rama was consumed by a grief so profound that nature itself seemed to mourn with him, but his resolve to rescue his beloved only grew stronger.",
+                        "reel_script": "Ravana: (As a beggar) Mother, give me alms. Step closer... (He transforms) I am the mighty Ravana! You are mine! Sita: Rama! Help me! Save me! Jatayu: Stop, demon! I will die before you take the Princess of Mithila!",
+                        "emotion": "raudra",
+                        "symbolism": "The collapse of security and the beginning of the great quest."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "title": "किष्किन्धाकाण्डम् - मैत्री",
+                "short_summary": "सुग्रीव से मित्रता और बाली का उद्धार।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "In his search for Sita, Rama reached the Rishyamukha mountain where he met the Vanara (monkey) commander, Hanuman. Hanuman, sensing the divinity of the two strangers, brought them to the exiled Vanara King, Sugriva. A pact of friendship was forged over a holy fire—Rama promised to help Sugriva regain his kingdom and his wife from his brother Vali, while Sugriva pledged his entire army to find Sita. Rama proved his strength by piercing seven Sal trees with a single arrow. In the subsequent battle between the brothers, Rama shot Vali from a hidden spot. As Vali lay dying, Rama explained that his intervention was an act of justice for Vali's mistreatment of Sugriva. The Vanara kingdom was restored, and the alliance was sealed, bringing hope to Rama's desperate search.",
+                        "reel_script": "Hanuman: Who are you, noble warriors? Rama: I am Rama of Ayodhya. I seek my wife Sita. Hanuman: (Kneeling) My Lord! My life is yours. Sugriva: Help me defeat Vali, and the Vanara army will search every corner of the earth for Sita.",
+                        "emotion": "bhakti",
+                        "symbolism": "The power of friendship and divine grace."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "With the rainy season ending, the Vanara army was divided into four groups to search in all directions. The southern group, led by the crown prince Angada and including Hanuman and the wise Jambavan, reached the edge of the vast ocean. Despair settled over them as they realized the impossibility of crossing the water to reach Lanka. It was then that Jambavan reminded Hanuman of his forgotten powers—his ability to change size, fly, and move with the speed of his father, the Wind God Vayu. As the realization dawned on him, Hanuman grew to a colossal size, his body glowing like molten gold. With a resounding roar of 'Jai Shree Ram,' he prepared for the legendary leap that would take him across the sea, a leap fueled by pure devotion and the weight of Rama's ring in his palm.",
+                        "reel_script": "Angada: The ocean is too vast. We have failed Rama. Jambavan: Hanuman, do you not remember? You can fly! You can cross the world in a single step! Hanuman: (Growing massive) For Rama, I shall leap across the stars! Jai Shree Ram!",
+                        "emotion": "adbhuta",
+                        "symbolism": "Realizing one's hidden potential through faith."
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "title": "सुन्दरकाण्डम् - हनुमान",
+                "short_summary": "लंका दहन और सीता माता को संदेश।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "Hanuman's flight across the ocean was a spectacle of divine power, overcoming demons and obstacles sent by the sea. He finally landed in the golden city of Lanka, a place of immense wealth but hollow virtue. Shrinking his size, he moved through the city at night, eventually finding Sita in the Ashoka Vatika, surrounded by demonesses. She looked like a flame obscured by smoke, her eyes red from weeping. Hanuman waited until she was alone and then dropped Rama's signet ring before her. Sita was initially suspicious but was moved to tears when Hanuman recited Rama's story. He offered to carry her back, but Sita refused, stating that Rama must come himself to defeat Ravana and restore her honor. Hanuman's heart swelled with respect for her unwavering dignity.",
+                        "reel_script": "Sita: (Weeping) Is death my only escape? Hanuman: (Whispering) Mother, I am a messenger. Rama has sent this ring to tell you he is coming. Sita: (Crying) My Lord lives! Tell him to come quickly, for my breath is fading.",
+                        "emotion": "shringara",
+                        "symbolism": "Hope as a bridge over despair."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "Before leaving Lanka, Hanuman decided to test the strength of Ravana's forces by destroying the royal orchard. He was eventually captured and brought before the ten-headed King. Ravana, in his arrogance, ordered Hanuman's tail to be set on fire as a punishment. However, Hanuman used this to his advantage, expanding his tail and leaping from building to building, setting the entire city of Lanka ablaze. The golden towers crumbled in the heat of his righteous fury. Having sowed the seeds of fear in the enemy's heart, Hanuman returned across the ocean. He prostrated before Rama and uttered the famous words: 'Seen have I, Sita.' He handed Rama the Chudamani (crest-jewel) that Sita had given him, providing the proof that would ignite the final battle for her rescue.",
+                        "reel_script": "Ravana: Put his tail to the fire! Let him return to his master in shame! Hanuman: (Laughing) Your city burns by your own pride, Ravana! (Leaping) Rama! I have found her! She waits for you at the edge of time.",
+                        "emotion": "veera",
+                        "symbolism": "The fire of truth consuming the structures of ego."
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "title": "युद्धकाण्डम् - विजय",
+                "short_summary": "राम-रावण महायुद्ध और लंका विजय।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "The Vanara army reached the shores of the ocean, but the path to Lanka remained blocked. Rama prayed to the Ocean God, Samudra, for three days. When the god appeared, he suggested a solution: the Vanara brothers Nala and Nila, gifted with divine engineering skills, could build a bridge. In a feat of collective labor and faith, stones were inscribed with the name 'Rama' and thrown into the sea, where they miraculously floated. The 'Rama Setu' was built in just five days, allowing the vast army to march into Lanka. The war that followed was unlike any other. Demons like the giant Kumbhakarna and the sorcerer Indrajit fell to the combined strength of Rama, Lakshmana, and the Vanaras. The battlefield was a cacophony of roars, arrows, and divine energy as the forces of Dharma and Adharma clashed in a final, decisive struggle.",
+                        "reel_script": "Nala: The stones! They float when we write His name! Hanuman: Every stone is a prayer. To Lanka! Rama: (Drawing his sword) The time for talk is over. Let justice be served.",
+                        "emotion": "veera",
+                        "symbolism": "Collective effort can overcome impossible obstacles."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "The final confrontation between Rama and Ravana was the climax of the epic. Ravana fought with all his might and magic, but Rama's arrows were guided by truth. Every time Rama severed one of Ravana's heads, another would grow back, representing the persistent nature of evil. Vibhishana, Ravana's righteous brother who had defected to Rama's side, revealed the secret: Ravana's vulnerability lay not in his heads, but in his navel, where the nectar of immortality was stored. Invoking the Brahma Astra—the most powerful weapon of the universe—Rama shot the fatal arrow. The earth shook as Ravana fell. With his death, the darkness over Lanka lifted. Rama was reunited with Sita, a moment of profound joy marked by the Agni Pariksha, where Sita's purity was vindicated by the god of fire himself, proving her to be as unsullied as gold.",
+                        "reel_script": "Ravana: You cannot kill me, mortal! I am the Lord of the worlds! Vibhishana: Strike his core, Rama! The nectar is there! Rama: (Invoking the Astra) For Dharma! For Sita! (The arrow strikes) Sita: (Emerging from the fire) I am yours, as I always have been.",
+                        "emotion": "raudra",
+                        "symbolism": "The destruction of the root cause of evil (Ego)."
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "title": "उत्तरकाण्डम् - रामराज्य",
+                "short_summary": "अयोध्या आगमन और मर्यादा पुरुषोत्तम का शासन।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "The period of fourteen years finally came to an end. Rama, Sita, and Lakshmana returned to Ayodhya aboard the Pushpaka Vimana, accompanied by Hanuman and the Vanaras. The city was transformed into a sea of light as millions of lamps were lit to welcome their beloved prince—a celebration that gave birth to the festival of Diwali. Rama's coronation was a grand affair, attended by gods and mortals alike. This marked the beginning of 'Rama Rajya'—an ideal kingdom where there was no poverty, no disease, and no injustice. Every citizen lived in harmony, and the king himself was the servant of the people. Under Rama's rule, Ayodhya became the blueprint for a perfect society, where the welfare of the last person was as important as the first.",
+                        "reel_script": "Bharata: My Lord, the time is fulfilled. Your throne is ready. Rama: I return not as a conqueror, but as your servant. (A crowd cheers) Vashistha: I crown you, Rama, the King of Dharma! Long live the Rama Rajya!",
+                        "emotion": "hasya",
+                        "symbolism": "The establishment of a perfect social order."
+                    },
+                    {
+                        "index": 2,
+                        "raw_text": "The final chapter of the epic took a bittersweet turn. To maintain the highest standards of royal conduct and to silence public doubt, Rama made the painful decision to send Sita to the forest. She found shelter in the ashram of Sage Valmiki, where she gave birth to twin sons, Luv and Kush. They grew up hearing the story of their father's greatness, eventually singing the Ramayana at Rama's own court. The reunion was brief but intense. Sita, having fulfilled her role on earth, asked her mother, Goddess Bhumi, to take her back. The earth split open and received her. Rama, heartbroken but dutiful as ever, continued to rule until his time came to merge back into the Sarayu. The epic concluded, leaving behind a legacy of righteousness, sacrifice, and the eternal promise that light would always prevail over darkness.",
+                        "reel_script": "Luv & Kush: (Singing) This is the story of Rama, the son of the Sun. This is the truth of the ages. Sita: Mother Earth, take me back! I have finished my task. Rama: (Reaching out) Sita! No! (He stands alone) I shall rule until the end, for my people, and for our story.",
+                        "emotion": "karuna",
+                        "symbolism": "The transcendence of earthly roles into eternal truth."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "महाभारत",
+        "slug": "mahabharata-short",
+        "description": "कौरवों और पाण्डवों के बीच कुरुक्षेत्र के धर्मयुद्ध की गाथा।",
+        "category": "महाकाव्य",
+        "cover_image_url": "https://pollinations.ai/p/cinematic%20battle%20of%20kurukshetra%20krishna%20chariot%20arjuna%20rich%20heritage%20gold%20lighting?width=1080&height=1920&nologo=true",
+        "chapters": [
+            {
+                "index": 1,
+                "title": "कुरुक्षेत्र का मैदान",
+                "short_summary": "धर्म और अधर्म के बीच का महायुद्ध।",
+                "scenes": [
+                    {
+                        "index": 1,
+                        "raw_text": "The great plains of Kurukshetra were filled with the sound of blowing conchs and the thunder of chariot wheels. On one side stood the hundred Kaurava brothers, led by the ambitious Duryodhana, and on the other, the five Pandavas, led by the righteous Yudhisthira. Arjuna, the legendary archer, stood in the center of the battlefield, his heart heavy with grief. Facing his own teachers, grandfathers, and cousins, he dropped his bow, Gandiva, unable to fight. It was then that Krishna, his charioteer and the manifestation of the Divine, spoke to him. He explained the nature of the soul, the necessity of duty, and the path of Karma. This dialogue, the Bhagavad Gita, turned a moment of paralyzed doubt into a decisive action for righteousness, reminding the world that when one fights for Dharma, the Universe itself stands as their ally.",
+                        "reel_script": "Arjuna: Krishna, how can I kill my own kin? This victory feels like death! Krishna: Do not grieve for the soul, Arjuna. It is eternal. Rise and fight for the truth!",
+                        "emotion": "veera",
+                        "symbolism": "The internal battle between duty and attachment."
+                    }
+                ]
+            }
+        ]
+    }
+]
