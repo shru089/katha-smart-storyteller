@@ -1,0 +1,10 @@
+__pycache__
+.venv
+venv_backend
+.env
+.git
+.gitignore
+.vscode
+node_modules
+dist
+coverage

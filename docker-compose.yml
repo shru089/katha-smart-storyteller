@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: katha-backend
+    ports:
+      - "2000:2000"
+    volumes:
+      - ./backend:/app
+      - /app/__pycache__
+      - /app/.venv
+    environment:
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000,http://localhost
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: katha-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
