@@ -19,8 +19,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application
 COPY . .
 
-# Expose port (Internal container port)
-EXPOSE 2000
+# Expose port (uses PORT env var; Render sets this automatically)
+EXPOSE 8081
 
 # Command to run the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "2000"]
+# PORT is provided by Render/Railway in production; falls back to 8081 locally
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8081}

@@ -363,8 +363,8 @@ export const askRishi = async (question: string, context: string) => {
 
 // ==================== DEBUG API ====================
 
-export const seedData = async () => {
-    const res = await api.post("/debug/seed-data")
+export const seedData = async (reset: boolean = true) => {
+    const res = await api.post(`/debug/seed-data?reset=${reset}`)
     return res.data
 }
 

@@ -101,6 +101,20 @@ class EnhancedAudioService:
             # For narration, use the regular narrator voice
             voice = self.VOICES['narrator']
         
+        # Try ElevenLabs first if configured
+        try:
+            from app.services.elevenlabs_service import elevenlabs_service
+            if elevenlabs_service.client is not None:
+                print(f"    ✨ Generating ElevenLabs premium audio segment ({emotion})...")
+                rel_url = elevenlabs_service.generate_narration(
+                    text=text,
+                    emotion=emotion,
+                    scene_id=segment_id
+                )
+                return rel_url.lstrip('/')
+        except Exception as e:
+            print(f"    ⚠️ ElevenLabs failed, falling back to Edge TTS: {e}")
+
         # Create temp filename
         temp_filename = f"seg_{segment_id}.mp3"
         temp_filepath = self.temp_dir / temp_filename
@@ -219,6 +233,19 @@ class EnhancedAudioService:
         emotion: str = 'narrative'
     ) -> str:
         """Simple audio generation for scenes without dialogue"""
+        # Try ElevenLabs first if configured
+        try:
+            from app.services.elevenlabs_service import elevenlabs_service
+            if elevenlabs_service.client is not None:
+                print(f"    ✨ Generating ElevenLabs premium simple audio ({emotion})...")
+                return elevenlabs_service.generate_narration(
+                    text=text,
+                    emotion=emotion,
+                    scene_id=scene_id
+                )
+        except Exception as e:
+            print(f"    ⚠️ ElevenLabs failed, falling back to Edge TTS: {e}")
+
         params = self.EMOTION_MAPPING.get(emotion, self.EMOTION_MAPPING['narrative'])
         
         # Use main narrator for simple scenes

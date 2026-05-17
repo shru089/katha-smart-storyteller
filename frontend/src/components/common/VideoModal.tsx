@@ -30,7 +30,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl, load
                 className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
                 onClick={onClose}
             >
-                <button className="absolute top-4 right-4 text-white hover:text-primary transition-colors z-50 bg-black/20 p-2 rounded-full" onClick={onClose}>
+                <button className="absolute top-4 right-4 text-white hover:text-primary transition-colors z-50 bg-black/20 p-2 rounded-full" onClick={onClose} title="Close" aria-label="Close">
                     <X size={32} />
                 </button>
 
@@ -42,14 +42,22 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl, load
                         </div>
                     ) : (
                         videoUrl ? (
-                            <video
-                                ref={videoRef}
-                                src={videoUrl}
-                                className="w-full h-full object-cover"
-                                controls
-                                playsInline
-                                loop
-                            />
+                            videoUrl.match(/\.(jpeg|jpg|gif|png|webp)($|\?)/i) ? (
+                                <img
+                                    src={videoUrl}
+                                    className="w-full h-full object-cover"
+                                    alt="Visual Reel"
+                                />
+                            ) : (
+                                <video
+                                    ref={videoRef}
+                                    src={videoUrl}
+                                    className="w-full h-full object-cover"
+                                    controls
+                                    playsInline
+                                    loop
+                                />
+                            )
                         ) : (
                             <div className="flex items-center justify-center h-full text-white/40 text-center p-6">
                                 <p>No video available for this scene. Press "Generate" in the reader.</p>

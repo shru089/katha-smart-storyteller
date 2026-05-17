@@ -59,9 +59,18 @@ const LibraryPage: React.FC = () => {
       .finally(() => setLoading(false));
   }, [activeTab, user]);
 
-  if (loading && stories.length === 0) return (
-    <div className="min-h-screen bg-earth flex items-center justify-center text-sand font-serif italic text-xl">
-      Opening the library gates...
+  // Skeleton for loading state — shown inline, not full-screen
+  const renderSkeletons = () => (
+    <div className="grid grid-cols-2 gap-6">
+      {[1, 2, 3, 4].map(i => (
+        <div key={i} className="animate-pulse">
+          <div className="aspect-[3/4] rounded-[32px] bg-white/5 mb-3 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 animate-shimmer" />
+          </div>
+          <div className="h-4 bg-white/5 rounded-lg w-3/4 mb-2" />
+          <div className="h-2.5 bg-white/5 rounded-lg w-1/2" />
+        </div>
+      ))}
     </div>
   );
 
@@ -73,7 +82,7 @@ const LibraryPage: React.FC = () => {
           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-saffron">Katha Collection</span>
           <h1 className="text-3xl font-bold font-serif leading-tight">मेरा पुस्तकालय (My Library)</h1>
         </div>
-        <button onClick={() => navigate('/profile')} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition border border-white/5 text-white/60">
+        <button onClick={() => navigate('/profile')} title="Settings" aria-label="Settings" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition border border-white/5 text-white/60">
           <Settings size={20} />
         </button>
       </header>
@@ -183,12 +192,16 @@ const LibraryPage: React.FC = () => {
             <div className="flex items-center gap-3 bg-white/5 p-1 rounded-xl">
               <button
                 onClick={() => setViewMode("grid")}
+                title="Grid view"
+                aria-label="Grid view"
                 className={`p-2 rounded-lg transition-all ${viewMode === "grid" ? "bg-white/10 text-white shadow-sm" : "text-white/30 hover:text-white/50"}`}
               >
                 <Grid size={18} />
               </button>
               <button
                 onClick={() => setViewMode("list")}
+                title="List view"
+                aria-label="List view"
                 className={`p-2 rounded-lg transition-all ${viewMode === "list" ? "bg-white/10 text-white shadow-sm" : "text-white/30 hover:text-white/50"}`}
               >
                 <ListIcon size={18} />
@@ -196,7 +209,7 @@ const LibraryPage: React.FC = () => {
             </div>
           </div>
 
-          {stories.length === 0 ? (
+          {loading ? renderSkeletons() : stories.length === 0 ? (
             <div className="py-20 text-center space-y-4">
               <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto text-white/20">
                 <BookOpen size={32} />

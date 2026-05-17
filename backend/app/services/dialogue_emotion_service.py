@@ -63,12 +63,51 @@ class DialogueEmotionService:
         """
         segments = []
         
-        # Pattern: "dialogue text", speaker_context said/whispered/etc
-        # Example: "Enter," the king said.
-        dialogue_pattern = r'"([^"]+)",?\s*([\w\s]+?)\s+(said|whispered|shouted|replied|asked|murmured|cried|laughed|sighed)'
+        # 1. Try to parse as colon-separated script format first (e.g. "Arjuna: I'm burned out. Krishna: Rise up.")
+        script_pattern = r'(\b[A-Za-z0-9_]+)\s*:\s*([^:\n]+?)(?=\s+\b[A-Za-z0-9_]+\s*:|$)'
+        matches = list(re.finditer(script_pattern, text))
+        
+        if len(matches) >= 1:
+            last_pos = 0
+            for match in matches:
+                # Add narration before the dialogue
+                narration_before = text[last_pos:match.start()].strip()
+                if narration_before:
+                    segments.append({
+                        'text': narration_before,
+                        'emotion': 'narrative'
+                    })
+                
+                speaker = match.group(1).strip()
+                dialogue_text = match.group(2).strip()
+                
+                # Identify character and emotion
+                character = self.identify_character(speaker)
+                base_emotion = self.CHARACTER_EMOTIONS.get(character, 'narrative')
+                
+                segments.append({
+                    'text': dialogue_text,
+                    'emotion': base_emotion,
+                    'character': character,
+                    'is_dialogue': True
+                })
+                
+                last_pos = match.end()
+            
+            # Add remaining narration after last dialogue
+            narration_after = text[last_pos:].strip()
+            if narration_after:
+                segments.append({
+                    'text': narration_after,
+                    'emotion': 'narrative'
+                })
+            
+            return segments
+
+        # 2. Otherwise, fall back to standard quote matching: "dialogue", speaker said
+        dialogue_pattern = r'["\']([^"\']+)["\'],?\s*([\w\s]+?)\s+(said|whispered|shouted|replied|asked|murmured|cried|laughed|sighed|roared)'
         
         last_pos = 0
-        
         for match in re.finditer(dialogue_pattern, text, re.IGNORECASE):
             # Add narration before this dialogue (if any)
             narration_before = text[last_pos:match.start()].strip()
@@ -79,7 +118,7 @@ class DialogueEmotionService:
                 })
             
             # Extract dialogue components
-            dialogue_text = match.group(1)  # The quoted text
+            dialogue_text = match.group(1)  # Quoted text
             speaker_context = match.group(2).lower()  # Who said it
             speech_verb = match.group(3).lower()  # How they said it
             
@@ -98,16 +137,8 @@ class DialogueEmotionService:
                 'is_dialogue': True
             })
             
-            # Add the attribution text ("the king said") as narration
-            attribution = text[match.start() + len(f'"{dialogue_text}"'):match.end()].strip()
-            if attribution:
-                segments.append({
-                    'text': attribution,
-                    'emotion': 'narrative'
-                })
-            
             last_pos = match.end()
-        
+            
         # Add remaining narration after last dialogue
         narration_after = text[last_pos:].strip()
         if narration_after:
@@ -115,7 +146,7 @@ class DialogueEmotionService:
                 'text': narration_after,
                 'emotion': 'narrative'
             })
-        
+            
         return segments
     
     def identify_character(self, speaker_text: str) -> str:

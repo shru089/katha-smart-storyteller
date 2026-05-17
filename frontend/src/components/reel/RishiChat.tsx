@@ -62,7 +62,7 @@ export default function RishiChat({ context, onClose }: RishiChatProps) {
                         <h3 className="font-serif font-bold text-xl text-white">Ask the Rishi</h3>
                         <p className="text-xs text-primary font-black uppercase tracking-widest">AI Cultural Companion</p>
                     </div>
-                    <button onClick={onClose} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/60">
+                    <button onClick={onClose} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/60" title="Close" aria-label="Close">
                         <Icon name="close" />
                     </button>
                 </div>
@@ -82,9 +82,9 @@ export default function RishiChat({ context, onClose }: RishiChatProps) {
                     {loading && (
                         <div className="flex justify-start">
                             <div className="bg-[#EC6D13]/10 px-4 py-2 rounded-full flex gap-1 items-center">
-                                <span className="w-1.5 h-1.5 bg-[#EC6D13] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                                <span className="w-1.5 h-1.5 bg-[#EC6D13] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                                <span className="w-1.5 h-1.5 bg-[#EC6D13] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                                <span className="w-1.5 h-1.5 bg-[#EC6D13] rounded-full animate-bounce [animation-delay:0ms]" />
+                                <span className="w-1.5 h-1.5 bg-[#EC6D13] rounded-full animate-bounce [animation-delay:150ms]" />
+                                <span className="w-1.5 h-1.5 bg-[#EC6D13] rounded-full animate-bounce [animation-delay:300ms]" />
                             </div>
                         </div>
                     )}
@@ -105,6 +105,8 @@ export default function RishiChat({ context, onClose }: RishiChatProps) {
                             onClick={handleSend}
                             disabled={!input.trim() || loading}
                             className="absolute right-2 p-2 bg-[#EC6D13] rounded-lg text-white shadow-lg disabled:opacity-50 disabled:shadow-none transition-all"
+                            title="Send message"
+                            aria-label="Send message"
                         >
                             <Icon name="send" className="text-lg" />
                         </button>

@@ -75,7 +75,7 @@ export default function Login({ onLogin }: Props) {
                         <Sparkles className="text-saffron" size={40} />
                     </motion.div>
 
-                    <h1 className="text-4xl font-display font-bold text-sand mb-2">Discover Your Roots</h1>
+                    <h1 className="text-4xl font-serif font-bold text-sand mb-2">Discover Your Roots</h1>
                     <p className="text-sand/60 text-lg">Stories from the past, reimagined for you.</p>
                 </div>
 

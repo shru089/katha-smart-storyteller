@@ -21,11 +21,21 @@ bcrypt==4.1.2
 python-jose[cryptography]==3.3.0
 
 # AI Services
+# Google Gemini (used by Rishi AI service via httpx REST — no extra package needed)
+# httpx is already listed above
+
+# Text-to-Speech (optional, for audio narration)
 edge-tts==6.1.9
 gTTS==2.5.0
-requests==2.31.0
-moviepy==2.0.0
+
+# Elevenlabs (optional premium TTS)
 elevenlabs>=1.0.0
+
+# Video generation utilities (optional)
+moviepy==2.0.0
 
 # Image generation (optional fallback)
 Pillow==10.1.0
+
+# HTTP requests
+requests==2.31.0

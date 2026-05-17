@@ -89,6 +89,8 @@ const AudioControl: React.FC<AudioControlProps> = ({ audioUrl }) => {
             <div className="relative -mt-10">
               <button
                 onClick={togglePlay}
+                title={isPlaying ? "Pause" : "Play"}
+                aria-label={isPlaying ? "Pause" : "Play"}
                 className="flex h-20 w-20 items-center justify-center rounded-3xl bg-primary text-white shadow-[0_10px_30px_rgba(236,109,19,0.5)] transition-all hover:scale-105 active:scale-95"
               >
                 <Icon name={isPlaying ? "pause" : "play_arrow"} className="text-[40px] fill-1" />
@@ -96,7 +98,7 @@ const AudioControl: React.FC<AudioControlProps> = ({ audioUrl }) => {
             </div>
 
             <div className="flex w-20 items-center justify-end gap-3">
-              <button className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-white/40 transition hover:bg-white/10 active:scale-95 hover:text-white">
+              <button title="Volume" aria-label="Volume" className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-white/40 transition hover:bg-white/10 active:scale-95 hover:text-white">
                 <Icon name="volume_up" className="text-[22px]" />
               </button>
             </div>

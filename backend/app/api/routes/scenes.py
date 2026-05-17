@@ -9,14 +9,11 @@ from typing import List, Optional
 from app.db import get_session
 from app.models import Scene
 from app.schemas import SceneOut
-# Old AI service imports removed - functionality moved to new audio routes
-# from app.services.ai_service import generate_scene_ai_metadata
-# from app.services.image_service import generate_image_from_prompt
 from app.services.gamification_service import complete_scene
-# from app.services.voice_service import generate_voice, generate_movie_dialogue
-# from app.services.video_service import generate_single_scene_video
+from app.jwt_auth import get_current_user_id
 from datetime import datetime
 import logging
+
 
 logger = logging.getLogger("katha.scenes")
 router = APIRouter()
@@ -80,7 +77,7 @@ async def generate_scene_assets(
             # FAST MODE: Animated image with Ken Burns (5-10 seconds)
             from app.services.fast_video_service import fast_video_service
             video_url = fast_video_service.generate_fast_video(
-                scene_text=scene.raw_text,
+                scene_text=scene.reel_script if scene.reel_script else scene.raw_text,
                 emotion=scene.ai_emotion,
                 scene_id=scene.id
             )
@@ -89,7 +86,7 @@ async def generate_scene_assets(
             # SVD MODE: Full video generation (1-3 minutes)
             from app.services.svd_video_service import svd_video_service
             video_url = svd_video_service.generate_scene_video(
-                scene_text=scene.raw_text,
+                scene_text=scene.reel_script if scene.reel_script else scene.raw_text,
                 emotion=scene.ai_emotion,
                 scene_id=scene.id
             )
@@ -112,11 +109,18 @@ async def generate_scene_assets(
 
 @router.post("/{scene_id}/complete")
 def mark_scene_complete(
-    scene_id: int, 
-    user_id: int = Query(...), 
-    session: Session = Depends(get_session)
+    scene_id: int,
+    session: Session = Depends(get_session),
+    user_id: int = Depends(get_current_user_id),
 ):
+    """
+    Mark a scene as completed for the authenticated user.
+    Awards XP, updates streak, and checks for new badges.
+    Requires a valid JWT token.
+    """
     try:
         return complete_scene(session=session, user_id=user_id, scene_id=scene_id)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

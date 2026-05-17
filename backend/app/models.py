@@ -1,6 +1,7 @@
 from typing import Optional, List
 from datetime import datetime, date
 from sqlmodel import SQLModel, Field, Relationship
+from sqlalchemy import UniqueConstraint
 
 class User(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -23,6 +24,8 @@ class User(SQLModel, table=True):
     favorites: List["UserFavoriteStory"] = Relationship(back_populates="user")
 
 class UserFavoriteStory(SQLModel, table=True):
+    __table_args__ = (UniqueConstraint("user_id", "story_id", name="uq_user_story_favorite"),)
+
     id: Optional[int] = Field(default=None, primary_key=True)
     user_id: int = Field(foreign_key="user.id")
     story_id: int = Field(foreign_key="story.id")

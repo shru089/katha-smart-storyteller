@@ -4,20 +4,24 @@ import Map from '../components/map/Map';
 import MapPin from '../components/map/MapPin';
 import InfoPanel from '../components/map/InfoPanel';
 import { BottomNavbar } from '../components/BottomNavbar';
+import { getLocations } from '../api/client';
 
 const MapPage: React.FC = () => {
   const [locations, setLocations] = useState<any[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/locations/")
-      .then(r => r.json())
+    getLocations()
       .then(data => {
         setLocations(data);
         if (data.length > 0) setSelectedLocation(data[0]);
       })
-      .catch(console.error)
+      .catch(err => {
+        console.error('Failed to load locations:', err);
+        setError('Could not load sacred geography. Please try again.');
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -41,6 +45,24 @@ const MapPage: React.FC = () => {
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
             <div className="text-primary font-serif italic text-xl animate-pulse">Consulting the ancient maps...</div>
+          </div>
+        )}
+
+        {!loading && error && (
+          <div className="absolute inset-0 flex items-center justify-center z-50">
+            <div className="text-center">
+              <p className="text-red-400 font-bold mb-2">🗺️ Map Unavailable</p>
+              <p className="text-white/50 text-sm">{error}</p>
+            </div>
+          </div>
+        )}
+
+        {!loading && !error && locations.length === 0 && (
+          <div className="absolute inset-0 flex items-center justify-center z-50">
+            <div className="text-center">
+              <p className="text-white/60 font-serif italic text-lg">No sacred sites found.</p>
+              <p className="text-white/30 text-xs mt-1">Seed location data to populate the map.</p>
+            </div>
           </div>
         )}
 

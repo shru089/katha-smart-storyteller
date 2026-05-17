@@ -21,11 +21,11 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user }) => {
             <img
               alt="Profile Picture"
               className="h-full w-full rounded-full object-cover"
-              src={user?.avatar_url || "https://api.dicebear.com/7.x/avataaars/svg?seed=" + (user?.name || "Katha")}
+              src={user?.profile_image_url || "https://api.dicebear.com/7.x/avataaars/svg?seed=" + (user?.name || "Katha")}
             />
           </div>
         </div>
-        <button className="absolute bottom-1 right-1 bg-slate-900 dark:bg-white text-white dark:text-surface-dark rounded-full p-1.5 shadow-lg border-2 border-white dark:border-background-dark flex items-center justify-center">
+        <button className="absolute bottom-1 right-1 bg-slate-900 dark:bg-white text-white dark:text-surface-dark rounded-full p-1.5 shadow-lg border-2 border-white dark:border-background-dark flex items-center justify-center" title="Edit avatar" aria-label="Edit avatar">
           <Icon name="edit" className="text-[16px]" />
         </button>
       </div>

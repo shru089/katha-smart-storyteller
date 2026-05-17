@@ -61,15 +61,22 @@ class FastVideoService:
         snippet = scene_text[:180] if len(scene_text) > 180 else scene_text
         
         emotion_styles = {
-            "heroic": "epic cinematic, golden hour lighting",
-            "romantic": "soft dreamy atmosphere, warm tones",
-            "dramatic": "high contrast, dramatic shadows",
-            "peaceful": "serene calm, soft colors",
-            "action": "dynamic energy, intense",
-            "mysterious": "dark atmospheric, moody"
+            "heroic": "epic hyper-realistic cinematic masterpiece, glorious golden hour rays, god-like mythic warrior stance",
+            "veera": "epic hyper-realistic cinematic masterpiece, glorious golden hour rays, god-like mythic warrior stance",
+            "romantic": "divine celestial atmosphere, soft glowing lotus flowers, rich warm dreamy lighting",
+            "shringara": "divine celestial atmosphere, soft glowing lotus flowers, rich warm dreamy lighting",
+            "dramatic": "spectacular chiaroscuro, intense mythological contrast, sweeping majestic shadows",
+            "raudra": "epic celestial fury, majestic dramatic lightning strikes, intense divine action aura",
+            "peaceful": "serene sacred temple sanctuary, ethereal glowing sunset mist, calm transcendental energy",
+            "shanta": "serene sacred temple sanctuary, ethereal glowing sunset mist, calm transcendental energy",
+            "action": "high-octane mythic combat, electric kinetic neon weapon auras, spectacular dynamic movements",
+            "mysterious": "shadowy divine mystery, bioluminescent magical flora, dark ambient atmosphere",
+            "bhayanaka": "shadowy divine mystery, bioluminescent magical flora, dark ambient atmosphere",
+            "hasya": "vibrant celebratory colors, joyful radiant festival ambient sparklers, beautiful details",
+            "adbhuta": "breathtaking cosmic magic realism, majestic celestial space nebula aura, divine awe"
         }
         
-        style = emotion_styles.get(emotion, "cinematic epic")
+        style = emotion_styles.get(emotion.lower() if emotion else "default", "epic hyper-realistic cinematic masterpiece, breathtaking mythological concept art")
         
         prompt = f"""
         Cinematic scene from ancient Indian epic: {snippet}.

@@ -16,18 +16,32 @@ logger = logging.getLogger("katha.seed")
 # Default badges for gamification
 DEFAULT_BADGES = [
     {
-        "code": "FIRST_SCENE",
-        "name": "First Step",
-        "description": "Complete your first scene",
-        "unlock_condition": "Complete 1 scene",
-        "icon_url": "🌱"
+        "code": "story_explorer",
+        "name": "Story Explorer",
+        "description": "Read your first story",
+        "unlock_condition": "Complete 1 story",
+        "icon_url": "book"
     },
     {
-        "code": "RAMAYANA_COMPLETE",
-        "name": "Ramayana Voyager",
-        "description": "Complete the entire Ramayana epic",
-        "unlock_condition": "Complete all scenes in 'Ramayana'",
-        "icon_url": "🏹"
+        "code": "devoted_reader",
+        "name": "Devoted Reader",
+        "description": "Read 5 stories",
+        "unlock_condition": "Complete 5 stories",
+        "icon_url": "favorite"
+    },
+    {
+        "code": "cultural_scholar",
+        "name": "Cultural Scholar",
+        "description": "Complete 10 stories",
+        "unlock_condition": "Complete 10 stories",
+        "icon_url": "psychology"
+    },
+    {
+        "code": "master_storyteller",
+        "name": "Master Storyteller",
+        "description": "Complete all stories",
+        "unlock_condition": "Complete all stories",
+        "icon_url": "auto_awesome"
     }
 ]
 

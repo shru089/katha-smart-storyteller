@@ -1,27 +1,33 @@
+# Render.com deployment config for Katha Backend
+# Frontend is deployed separately on Vercel (see frontend/.env.example)
+#
+# To deploy on Railway instead:
+#   1. Connect your GitHub repo
+#   2. Add the environment variables below in the Railway dashboard
+#   3. Railway auto-detects the Dockerfile and deploys
+
 services:
   - type: web
     name: katha-backend
-    runtime: python
+    runtime: docker
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
-
-  - type: web
-    name: katha-frontend
-    runtime: static
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: katha-backend
-          property: url
+      - key: PORT
+        value: 8081
+      - key: DATABASE_URL
+        value: sqlite:///./katha.db  # Override with PostgreSQL URL for production persistence
+      - key: JWT_SECRET_KEY
+        generateValue: true           # Render auto-generates a secure secret
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_EXPIRE_MINUTES
+        value: 10080
+      - key: GEMINI_API_KEY
+        sync: false                   # Set this in Render dashboard (secret)
+      - key: CORS_ORIGINS
+        sync: false                   # Set to your Vercel frontend URL, e.g. https://katha.vercel.app
+      - key: DEBUG
+        value: false
+    healthCheckPath: /health
+    autoDeploy: true

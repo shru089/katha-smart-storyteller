@@ -332,6 +332,8 @@ const ChapterReader: React.FC = () => {
             <header className="fixed top-0 left-0 right-0 z-40 px-4 py-4 flex items-center justify-between bg-gradient-to-b from-[#0F0A0A] to-transparent">
                 <button
                     onClick={() => navigate(-1)}
+                    title="Go back"
+                    aria-label="Go back"
                     className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:bg-saffron/20 transition-all shadow-glow"
                 >
                     <ChevronLeft size={20} />
@@ -346,11 +348,17 @@ const ChapterReader: React.FC = () => {
                 <div className="flex gap-2">
                     <button
                         onClick={handleToggleFavorite}
+                        title={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+                        aria-label={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
                         className={`w-10 h-10 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center border border-white/10 transition-all shadow-glow ${isFavorite ? 'text-red-500 hover:text-red-400' : 'text-white hover:text-red-500'}`}
                     >
                         <Heart size={18} fill={isFavorite ? "currentColor" : "none"} />
                     </button>
-                    <button className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:text-saffron">
+                    <button 
+                        title="Share chapter" 
+                        aria-label="Share chapter" 
+                        className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center border border-white/10 text-white hover:text-saffron"
+                    >
                         <Share2 size={18} />
                     </button>
                 </div>
@@ -530,6 +538,7 @@ const ChapterReader: React.FC = () => {
                                     onClick={skipBackward}
                                     className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 text-sand/60 hover:bg-white/10 hover:text-saffron transition-all border border-white/5"
                                     title="Rewind 10s (←)"
+                                    aria-label="Rewind 10 seconds"
                                 >
                                     <SkipBack size={18} />
                                 </button>
@@ -540,6 +549,7 @@ const ChapterReader: React.FC = () => {
                                     className={`w-16 h-16 rounded-[24px] flex items-center justify-center transition-all shadow-xl ${isPlaying ? 'bg-saffron text-white scale-95 shadow-glow animate-pulse' : 'bg-white/10 text-sand hover:bg-white/20'
                                         }`}
                                     title="Play/Pause (Space)"
+                                    aria-label="Play or Pause narration"
                                 >
                                     {isPlaying ? <Pause size={28} /> : <Play size={28} className="ml-1" />}
                                 </button>
@@ -549,6 +559,7 @@ const ChapterReader: React.FC = () => {
                                     onClick={skipForward}
                                     className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 text-sand/60 hover:bg-white/10 hover:text-saffron transition-all border border-white/5"
                                     title="Forward 10s (→)"
+                                    aria-label="Fast forward 10 seconds"
                                 >
                                     <SkipForward size={18} />
                                 </button>
@@ -587,11 +598,13 @@ const ChapterReader: React.FC = () => {
 
                                 {/* Action Buttons */}
                                 <div className="flex items-center gap-3">
-                                    <button className="w-12 h-12 rounded-full flex items-center justify-center bg-white/5 text-sand/40 hover:text-saffron transition-all border border-white/5">
+                                    <button title="Audio podcast" aria-label="Audio podcast" className="w-12 h-12 rounded-full flex items-center justify-center bg-white/5 text-sand/40 hover:text-saffron transition-all border border-white/5">
                                         <Headphones size={22} />
                                     </button>
                                     <button
                                         onClick={() => handleVisualiseScene(scenes[activeSceneIndex])}
+                                        title="Visualize scene"
+                                        aria-label="Visualize scene"
                                         className="w-12 h-12 rounded-full flex items-center justify-center bg-white/5 text-sand/40 hover:text-saffron transition-all border border-white/5"
                                     >
                                         <MonitorPlay size={22} />

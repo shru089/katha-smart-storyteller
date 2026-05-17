@@ -24,10 +24,12 @@ export default function Onboarding() {
 
     const begin = () => {
         if (!name.trim()) return alert("Please enter your name to continue");
+        // Store onboarding data
         localStorage.setItem("katha_user", name);
-        // Persist interests too if needed in future
         localStorage.setItem("katha_interests", JSON.stringify(selectedInterests));
-        navigate("/home");
+        // Mark as seen so returning visitors go to /login, not /onboarding again
+        localStorage.setItem("katha_seen_onboarding", "true");
+        navigate("/login");
     };
 
     return (
@@ -41,6 +43,8 @@ export default function Onboarding() {
                 <div className="flex items-center justify-between mb-8">
                     <button
                         onClick={() => navigate(-1)}
+                        title="Go back"
+                        aria-label="Go back"
                         className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition"
                     >
                         <ArrowLeft size={20} className="text-white/70" />
@@ -134,11 +138,14 @@ export default function Onboarding() {
                     {/* Social Proof */}
                     <div className="mt-8 flex items-center justify-center gap-4 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 cursor-default">
                         <div className="flex -space-x-3">
-                            {[10, 12, 33].map((i, idx) => (
-                                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#1C1427] bg-[#2D1B4E] overflow-hidden z-0" style={{ zIndex: 3 - idx }}>
-                                    <img src={`https://i.pravatar.cc/100?img=${i}`} alt="User" />
-                                </div>
-                            ))}
+                            {[10, 12, 33].map((i, idx) => {
+                                const zClasses = ["z-[3]", "z-[2]", "z-[1]"];
+                                return (
+                                    <div key={i} className={`w-8 h-8 rounded-full border-2 border-[#1C1427] bg-[#2D1B4E] overflow-hidden ${zClasses[idx] || "z-0"}`}>
+                                        <img src={`https://i.pravatar.cc/100?img=${i}`} alt="User" />
+                                    </div>
+                                );
+                            })}
                         </div>
                         <span className="text-xs text-white/50 font-medium tracking-wide">Join 10k+ storytellers today</span>
                     </div>

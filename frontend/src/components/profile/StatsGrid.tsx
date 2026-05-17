@@ -8,9 +8,9 @@ interface StatsGridProps {
 
 const StatsGrid: React.FC<StatsGridProps> = ({ user }) => {
   const stats = [
-    { icon: 'auto_stories', value: user?.stories_completed || 24, label: 'Stories', color: 'text-saffron' },
-    { icon: 'bolt', value: user?.xp || '1,250', label: 'Total XP', color: 'text-amber' },
-    { icon: 'local_fire_department', value: user?.current_streak || 12, label: 'Streak', color: 'text-saffron' },
+    { icon: 'auto_stories', value: user?.stories_read ?? 0, label: 'Stories', color: 'text-saffron' },
+    { icon: 'bolt', value: user?.total_xp ?? 0, label: 'Total XP', color: 'text-amber' },
+    { icon: 'local_fire_department', value: user?.current_streak_days ?? 0, label: 'Streak', color: 'text-saffron' },
   ];
 
   return (

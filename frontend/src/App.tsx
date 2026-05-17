@@ -19,19 +19,20 @@ import ExplorePage from "./pages/ExplorePage";
 import LibraryPage from "./pages/LibraryPage";
 import ProfilePage from "./pages/ProfilePage";
 import MapPage from "./pages/MapPage";
-import ReelsPage from "./pages/ReelsPage"; // New
+import ReelsPage from "./pages/ReelsPage";
 import ArchetypeQuiz from "./pages/ArchetypeQuiz";
+import NotFoundPage from "./pages/NotFoundPage";
 import { isAuthenticated, getStoredUser, User } from "./api/client";
 
-// Protected Route component
+// Protected Route — redirects to /onboarding if not logged in
 const ProtectedRoute = ({ children }: { children?: React.ReactNode }) => {
     if (!isAuthenticated()) {
-        return <Navigate to="/login" replace />;
+        return <Navigate to="/onboarding" replace />;
     }
     return children ? <>{children}</> : <Outlet />;
 };
 
-// Public Route - redirects to home if already logged in
+// Public Route — redirects to home if already logged in
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
     if (isAuthenticated()) {
         return <Navigate to="/" replace />;
@@ -45,6 +46,19 @@ const MainLayout = () => (
         <Outlet />
     </MobileLayout>
 );
+
+// Root redirect: unauthenticated → onboarding, authenticated → home
+const RootRedirect = () => {
+    if (!isAuthenticated()) {
+        // Check if they've been here before (skipped onboarding before)
+        const hasSeenOnboarding = localStorage.getItem("katha_seen_onboarding");
+        if (hasSeenOnboarding) {
+            return <Navigate to="/login" replace />;
+        }
+        return <Navigate to="/onboarding" replace />;
+    }
+    return <Home />;
+};
 
 // Auth context provider
 const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -62,8 +76,16 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
     if (loading) {
         return (
             <div className="min-h-screen bg-earth flex items-center justify-center">
-                <div className="text-saffron text-xl font-serif italic animate-pulse">
-                    Loading Katha...
+                <div className="flex flex-col items-center gap-4">
+                    {/* Animated Katha logo / spinner */}
+                    <div className="relative w-16 h-16">
+                        <div className="absolute inset-0 rounded-full border-2 border-saffron/20 animate-ping" />
+                        <div className="absolute inset-2 rounded-full border-2 border-saffron/40 animate-pulse" />
+                        <div className="absolute inset-4 rounded-full bg-saffron/20 flex items-center justify-center">
+                            <span className="text-saffron text-lg">क</span>
+                        </div>
+                    </div>
+                    <span className="text-sand/40 text-xs font-bold uppercase tracking-[0.3em]">Katha</span>
                 </div>
             </div>
         );
@@ -74,14 +96,12 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
     // Handle auth callbacks from Login/Register pages
-    const handleLogin = (userId: number) => {
-        console.log("User logged in:", userId);
+    const handleLogin = (_userId: number) => {
         window.location.href = "/";
     };
 
-    const handleRegister = (userId: number) => {
-        console.log("User registered:", userId);
-        window.location.href = "/quiz"; // Go to archetype quiz after registration
+    const handleRegister = (_userId: number) => {
+        window.location.href = "/quiz"; // Archetype quiz after registration
     };
 
     return (
@@ -97,6 +117,7 @@ function App() {
                             color: '#F5E6D3',
                             border: '1px solid rgba(236, 109, 19, 0.3)',
                             borderRadius: '16px',
+                            fontFamily: '"Noto Sans", sans-serif',
                         },
                         success: {
                             iconTheme: {
@@ -107,12 +128,17 @@ function App() {
                     }}
                 />
                 <Routes>
-                    {/* Public Routes (redirect to home if logged in) */}
+                    {/* Root: smart redirect based on auth state */}
+                    <Route path="/" element={<RootRedirect />} />
+
+                    {/* Onboarding — first-time visitors */}
                     <Route path="/onboarding" element={
                         <PublicRoute>
                             <Onboarding />
                         </PublicRoute>
                     } />
+
+                    {/* Auth pages */}
                     <Route path="/login" element={
                         <PublicRoute>
                             <Login onLogin={handleLogin} />
@@ -124,35 +150,34 @@ function App() {
                         </PublicRoute>
                     } />
 
-                    {/* Story/Scene viewing - accessible to all for now */}
+                    {/* Story/Scene viewing — accessible to all */}
                     <Route path="/story/:id" element={<StoryDetails />} />
                     <Route path="/chapter/:id" element={<ChapterReader />} />
                     <Route path="/scene/:id" element={<SceneViewer />} />
 
-                    {/* Quiz - accessible to logged in users */}
+                    {/* Map — accessible to all */}
+                    <Route path="/map" element={<MapPage />} />
+
+                    {/* Archetype Quiz — requires login */}
                     <Route path="/quiz" element={
                         <ProtectedRoute>
                             <ArchetypeQuiz />
                         </ProtectedRoute>
                     } />
 
-                    {/* Map - accessible to all */}
-                    <Route path="/map" element={<MapPage />} />
-
-                    {/* Achievements - requires login */}
+                    {/* Achievements — requires login */}
                     <Route path="/achievements" element={
                         <ProtectedRoute>
                             <Achievements />
                         </ProtectedRoute>
                     } />
 
-                    {/* Main Routes with Bottom Nav Bar - PROTECTED */}
+                    {/* Main app with Bottom Nav — PROTECTED */}
                     <Route element={
                         <ProtectedRoute>
                             <MainLayout />
                         </ProtectedRoute>
                     }>
-                        <Route path="/" element={<Home />} />
                         <Route path="/home" element={<Navigate to="/" replace />} />
                         <Route path="/explore" element={<ExplorePage />} />
                         <Route path="/reels" element={<ReelsPage />} />
@@ -160,8 +185,8 @@ function App() {
                         <Route path="/profile" element={<ProfilePage />} />
                     </Route>
 
-                    {/* Fallback - redirect to home (which will redirect to login if needed) */}
-                    <Route path="*" element={<Navigate to="/" replace />} />
+                    {/* 404 — all unmatched routes */}
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </AuthWrapper>
         </BrowserRouter>

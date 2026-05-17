@@ -111,7 +111,7 @@ const ProfilePage: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <EditProfileForm onSave={handleProfileUpdate} />
+              <EditProfileForm user={user} onSave={handleProfileUpdate} />
             </motion.div>
           ) : (
             <motion.div

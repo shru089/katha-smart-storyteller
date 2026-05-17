@@ -31,7 +31,7 @@ const FloatingActionDock: React.FC<FloatingActionDockProps> = ({ onListen, onVis
           <Icon name="smart_display" className="text-[20px] text-primary" />
           <span className="text-sm">Visualize</span>
         </button>
-        <button className="size-12 flex items-center justify-center rounded-xl hover:bg-white/5 text-white/40 transition-colors">
+        <button title="Share" aria-label="Share" className="size-12 flex items-center justify-center rounded-xl hover:bg-white/5 text-white/40 transition-colors">
           <Icon name="ios_share" />
         </button>
       </div>
