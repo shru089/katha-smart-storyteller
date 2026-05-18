@@ -14,12 +14,14 @@ router = APIRouter()
 
 
 @router.post("/seed-data")
+@router.get("/seed-data")
 def seed_data(
     reset: bool = Query(False, description="If true, deletes all existing story data before seeding"),
     session: Session = Depends(get_session)
 ):
     """
     Seeds the database with stories from stories.json and default badges.
+    Supports both POST and GET (for quick browser-based developer triggers).
     """
     if reset:
         logger.warning("Resetting database and seeding fresh data...")

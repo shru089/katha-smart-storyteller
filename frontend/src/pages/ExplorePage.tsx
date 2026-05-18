@@ -88,12 +88,16 @@ const ExplorePage: React.FC = () => {
             <button
               onClick={() => setViewMode('list')}
               className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-white/10 text-white' : 'text-white/40 hover:text-white'}`}
+              aria-label="Switch to list view"
+              title="List View"
             >
               <Compass size={20} />
             </button>
             <button
               onClick={() => setViewMode('map')}
               className={`p-2 rounded-lg transition-all ${viewMode === 'map' ? 'bg-saffron text-white shadow-glow' : 'text-white/40 hover:text-white'}`}
+              aria-label="Switch to map view"
+              title="Map View"
             >
               <MapIcon size={20} />
             </button>

@@ -175,6 +175,8 @@ const StoryDetails: React.FC = () => {
                         handleListen(chapter.scenes[0].id, chapter.scenes[0].raw_text, chapter.scenes[0].ai_audio_url);
                       }
                     }}
+                    aria-label="Listen to chapter audio"
+                    title="Listen"
                   >
                     <Volume2 size={16} className={generatingAudio ? "animate-pulse text-[#EC6D13]" : ""} />
                   </button>
@@ -187,6 +189,8 @@ const StoryDetails: React.FC = () => {
                         handleVisualise(chapter.scenes[0].id, chapter.scenes[0].ai_image_prompt, chapter.scenes[0].ai_video_url);
                       }
                     }}
+                    aria-label="Visualise chapter scene"
+                    title="Visualise"
                   >
                     <Eye size={16} className={generatingVideo ? "animate-pulse text-[#EC6D13]" : ""} />
                   </button>

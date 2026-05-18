@@ -5,6 +5,7 @@ Updates rich story structures including movie-style reel scripts.
 
 import json
 import os
+import glob
 import logging
 from typing import Optional
 from sqlmodel import Session, select
@@ -114,10 +115,16 @@ def seed_stories(session: Session) -> dict:
         story.description = story_data.get("description", "")
         story.category = story_data.get("category", "Folklore")
         
-        # Handle Cover Image - use AI generation prompt if needed
+        # Handle Cover Image - prioritize local offline assets for 100% reliability
         cover_image = story_data.get("cover_image_url", "")
-        if not cover_image or "unsplash" in cover_image:
-            # Fallback to a better AI generated prompt link
+        if "ramayana" in story.slug:
+            cover_image = "/static/images/stories/ramayana_cover.png"
+        elif "mahabharata" in story.slug:
+            cover_image = "/static/images/stories/mahabharata_cover.png"
+        elif "gita" in story.slug:
+            cover_image = "/static/images/stories/mahabharata_cover.png"
+        
+        if not cover_image:
             prompt = f"cinematic high quality painting of {story.title} indian mythology style 8k"
             cover_image = f"https://pollinations.ai/p/{prompt.replace(' ', '%20')}?width=800&height=1200&nologo=true"
         
@@ -143,11 +150,22 @@ def seed_stories(session: Session) -> dict:
         
         # Create chapters
         for chapter_data in story_data.get("chapters", []):
+            # Dynamically resolve matching offline timestamped chapter cover
+            prefix = "ramayana" if "ramayana" in story.slug else "mahabharata"
+            search_pattern = f"static/images/covers/{prefix}_ch{chapter_data['index']}_cover_*.png"
+            files = glob.glob(search_pattern) or glob.glob(f"backend/{search_pattern}")
+            ch_cover = ""
+            if files:
+                ch_cover = f"/static/images/covers/{os.path.basename(files[0])}"
+            else:
+                ch_cover = "/static/images/stories/ramayana_cover.png" if prefix == "ramayana" else "/static/images/stories/mahabharata_cover.png"
+
             chapter = Chapter(
                 story_id=story.id,
                 index=chapter_data["index"],
                 title=chapter_data["title"],
-                short_summary=chapter_data.get("short_summary", "")
+                short_summary=chapter_data.get("short_summary", ""),
+                cover_image_url=ch_cover
             )
             session.add(chapter)
             session.commit()

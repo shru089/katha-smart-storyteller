@@ -11,7 +11,7 @@ const Achievements: React.FC = () => {
   return (
     <div className="relative min-h-screen flex flex-col pb-24 mx-auto max-w-md w-full overflow-x-hidden shadow-2xl shadow-black/5 bg-background-light dark:bg-background-dark">
       <header className="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 flex items-center justify-between">
-        <button onClick={() => navigate(-1)} className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-all text-text-main dark:text-white">
+        <button onClick={() => navigate(-1)} className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-all text-text-main dark:text-white" aria-label="Go back" title="Go back">
           <Icon name="arrow_back_ios_new" className="text-2xl" />
         </button>
         <h1 className="text-lg font-bold tracking-tight text-center flex-1 pr-10 text-text-main dark:text-white">My Journey</h1>

@@ -377,7 +377,7 @@ const ChapterReader: React.FC = () => {
                     {/* Image First - Webtoon Hero */}
                     <div className="relative aspect-[9/12] md:aspect-video rounded-3xl overflow-hidden mb-12 shadow-[0_30px_60px_rgba(0,0,0,0.9)] border border-saffron/20 group">
                         <img
-                            src={chapter?.cover_image_url ? `http://localhost:8000${chapter.cover_image_url}` : getAssetUrl(scenes[0]?.ai_image_url) || 'https://images.unsplash.com/photo-1628135805272-36c1c87515b6?q=80&w=1080&auto=format&fit=crop'}
+                            src={getAssetUrl(chapter?.cover_image_url) || getAssetUrl(scenes[0]?.ai_image_url) || 'https://images.unsplash.com/photo-1628135805272-36c1c87515b6?q=80&w=1080&auto=format&fit=crop'}
                             alt="Chapter Cover"
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                         />

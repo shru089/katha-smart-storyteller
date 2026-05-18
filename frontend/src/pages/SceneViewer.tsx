@@ -127,6 +127,8 @@ export default function SceneViewer() {
             <button
                 onClick={() => navigate(-1)}
                 className="absolute top-6 left-6 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white border border-white/10 z-20 hover:bg-black/60 transition-all"
+                aria-label="Go back"
+                title="Go back"
             >
                 <Icon name="arrow_back" />
             </button>
@@ -135,6 +137,8 @@ export default function SceneViewer() {
             <button
                 onClick={() => setShowRishiChat(true)}
                 className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[#EC6D13] flex items-center justify-center text-white shadow-[0_0_20px_rgba(236,109,19,0.5)] z-20 hover:scale-105 transition-all animate-bounce-slow"
+                aria-label="Chat with Rishi AI"
+                title="Chat with Rishi AI"
             >
                 <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rishi&clothing=graphicShirt" alt="Rishi" className="w-10 h-10 rounded-full bg-[#1A1410]" />
             </button>

@@ -29,6 +29,8 @@ export const notifyAchievement = (title: string, subtitle: string) => {
             <button
                 onClick={() => toast.dismiss(t.id)}
                 className="p-1 rounded-full hover:bg-white/10 text-white/40 hover:text-white transition-colors"
+                aria-label="Dismiss notification"
+                title="Dismiss"
             >
                 <X size={14} />
             </button>

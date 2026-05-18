@@ -1,7 +1,7 @@
 import React from 'react';
 import { Play } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Story } from '../api/client';
+import { Story, getAssetUrl } from '../api/client';
 
 interface StoryCardProps {
     story: Story;
@@ -12,7 +12,7 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, variant = 'portrait
     const navigate = useNavigate();
 
     // Fallback image if none provided
-    const bgImage = story.cover_image_url || 'https://images.unsplash.com/photo-1605806616949-1e87b487bc2a?q=80&w=600&auto=format&fit=crop';
+    const bgImage = getAssetUrl(story.cover_image_url) || 'https://images.unsplash.com/photo-1605806616949-1e87b487bc2a?q=80&w=600&auto=format&fit=crop';
 
     if (variant === 'landscape') {
         return (
@@ -20,8 +20,10 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, variant = 'portrait
                 onClick={() => navigate(`/story/${story.id}`)}
                 className="relative w-full h-48 rounded-2xl overflow-hidden cursor-pointer group shadow-soft"
             >
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${bgImage})` }}
+                <img
+                    src={bgImage}
+                    alt={story.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -46,8 +48,10 @@ export const StoryCard: React.FC<StoryCardProps> = ({ story, variant = 'portrait
             onClick={() => navigate(`/story/${story.id}`)}
             className="relative h-64 rounded-xl overflow-hidden cursor-pointer group shadow-soft"
         >
-            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${bgImage})` }}
+            <img
+                src={bgImage}
+                alt={story.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-earth/90 via-transparent to-transparent" />
 
